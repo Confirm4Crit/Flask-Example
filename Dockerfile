@@ -1,10 +1,8 @@
-FROM python:3.6.5
-# Set the working directory to /app
+FROM python:3.7-slim
+
 WORKDIR /app
-# Copy local contents into the container
-ADD . /app
-# Install all required dependencies
+COPY . /app
+
 RUN pip install -r requirements.txt
-EXPOSE 5000
-ENV FLASK_ENV=development
-CMD flask run
+
+CMD ["python", "app.py"]
